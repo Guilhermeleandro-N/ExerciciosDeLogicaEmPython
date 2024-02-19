@@ -1,0 +1,6 @@
+x=int(input("Informe dois numeros inteiros:"))
+y=int(input(""))
+z=float(input("Informe um número real:"))
+print(f"O produto do dobro do primeiro com metade do segundo é {(2*x)*(y/2)}")
+print(f"A soma do triplo do primeiro com o terceiro é {round(((3*x)+z),2)}")
+print(f"O terceiro elevado ao cubo é {round((z**3),2)}")

@@ -1,0 +1,8 @@
+Resultado da votação: 
+Jogador              votos              %
+4                2             25.0
+5                2             25.0
+6                1             12.5
+7                1             12.5
+8                1             12.5
+9                1             12.5

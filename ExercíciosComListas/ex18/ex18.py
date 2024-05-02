@@ -27,15 +27,17 @@ Jogador Votos           %
 10              3               37,5%
 11              1               12,5%
 O melhor jogador foi o número 9, com 4 votos, correspondendo a 50% do total de votos."""
+#declaração de variáveis
 def porcento(total, njogador):
     porcentagem=round(((njogador/total)*100),2)
     return porcentagem
 contadores=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 porcentagem=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 votos=0
-
+indice=0
+#votação
 while True:
-    x=int(input("Número do jogador: (0=fim)"))
+    x=int(input("Número do jogador: (0=fim) "))
     if x>0 and x<24:
         contadores[x-1]+=1
         votos+=1
@@ -43,15 +45,24 @@ while True:
         break
     else:
         print("Informe um valor entre 1 e 23 ou 0 pra sair!")
+#resultado da votação
 print("Resultado da votação: \nJogador              votos              %")
+maior=contadores[0]
 for c in range(23):
+    if contadores[c]>maior:
+        maior=contadores[c]
+        indice=c
     if contadores[c]>0:
         porcentagem[c]=porcento(votos, contadores[c])
         print(f"{c+1}                {contadores[c]}             {porcentagem[c]}")
+        
+print(f"O melhor jogador foi o número {indice+1}, com {contadores[indice]} votos, correspondendo a {porcentagem[indice]}% do total de votos.")
     
-
+#escrita no arquivo.txt
 with open("texto.txt", "w") as texto:
     texto.write("Resultado da votação: \nJogador              votos              %\n")
     for c in range(23):
         if contadores[c]>0:
             texto.write(f"{c+1}                {contadores[c]}             {porcentagem[c]}\n")
+    texto.write(f"O melhor jogador foi o número {indice+1}, com {contadores[indice]} votos, correspondendo a {porcentagem[indice]}% do total de votos.")
+input("Pressione enter para sair...")

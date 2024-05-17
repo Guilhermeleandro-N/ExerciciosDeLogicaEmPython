@@ -40,6 +40,7 @@ for c in linha:
     y=int(c[16:])
     usuarios.append(x)
     bytes.append(y)
+texto.close()
 #prenche a lista mb e soma o total
 for c in range(len(bytes)):
     x=byte_para_mega(bytes[c])
